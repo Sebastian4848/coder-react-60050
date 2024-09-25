@@ -1,10 +1,11 @@
-import Greeting from "./components/Greeting"
+import ItemListContainer from "./components/ItemListContainer"
+import NavBar from "./components/NavBar"
 
 function App() {
   return (
     <>
-      <Greeting message="Me gusta el mate" />
-      <Greeting message="Me gusta el cofee" />
+      <NavBar />
+      <ItemListContainer message="Hello, World!" />
     </>
   )
 }
