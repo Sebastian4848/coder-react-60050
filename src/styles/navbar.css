@@ -1,9 +1,22 @@
+ul div {
+    width:  calc((100%)/3);
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
 ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #333;
+    background-color: #c58e8e;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
 }
 
 li {
