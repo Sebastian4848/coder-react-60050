@@ -1,10 +1,12 @@
 import React from 'react'
+import products from '../../assets/mockData.json'
+import ItemList from '../ItemList/ItemList'
 
-const ItemListContainer = ({ message }) => {
-    // const ItemListContainer = (greeting) => {
-    return (
-        <h1>{message}</h1>
-    )
-}
+// Logica para traer los productos. Promise, setTimeout etc.
+const ItemListContainer = () => {
+
+
+// console.log(products)
+  return <ItemList products={products} />}
 
 export default ItemListContainer

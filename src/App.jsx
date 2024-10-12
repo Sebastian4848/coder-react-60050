@@ -6,8 +6,8 @@ function App() {
   return (
     <>
       <NavBar />
-      {/* <ItemListContainer message="Hello, World!" /> */}
-      <ItemCount initial = {1} stock = {10} onAdd = {(quantity) => console.log("Cantidad agregada", quantity)}/>
+      <ItemListContainer />
+      {/* <ItemCount initial = {1} stock = {10} onAdd = {(quantity) => console.log("Cantidad agregada", quantity)}/> */}
     </>
   )
 }
