@@ -1,5 +1,5 @@
 import React from 'react'
-import '../NavBar/navbar.css'
+import styles from '../NavBar/navbar.module.scss'
 import CartWidget from '../CartWidget/CartWidget'
 
 
@@ -7,7 +7,7 @@ const NavBar = () => {
     return (
         <ul>
             <div>
-                <li><a className="active" href="#home"></a></li>
+                <li><a className={styles.active} href="#home"></a></li>
                 <li><a href="#dogs">Dogs</a></li>
                 <li><a href="#cats">Cats</a></li>
                 <li><a href="#complementos">Complementos</a></li>
