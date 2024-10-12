@@ -1,42 +1,36 @@
 import React, { useEffect, useState } from "react"
 import "./ItemCount.css"
 
-const ItemCount = () => {
+const ItemCount = ({stock, initial,onAdd}) => {
 
-    const [count, setCount] = useState(0)
-    const stockDisponible = 5;
+    const [quantity, setQuantity] = useState(initial)
 
-    useEffect(() => {
-        console.log("Esto se ejecutara solamente cuando se monta el componente")
-    }, [])
+    // const stockDisponible = 5;
+    // useEffect(() => {
+    //     console.log("Esto se ejecutara solamente cuando se monta el componente")
+    // }, [])
 
 
-    const onAdd = () => {
-        if (count < stockDisponible) {
-            setCount(prevCount => prevCount + 1)
-            console.log(count)
-        } else {
-            // alert("No hay stock disponible")
+    const increment = () => {
+        if (quantity < stock) {
+            setQuantity(quantity + 1)
         }
     }
 
-    const onSubstract = () => {
-        if (count > 1) {
-            setCount(prevCount => prevCount - 1)
-            console.log(count)
-        } else {
-            // alert("No hay stock disponible")
+    const decrement = () => {
+        if (quantity > 1) {
+            setQuantity(quantity - 1)
         }
 
     }
     return (
         <div className="container">
             <div className="counter">
-                <button className="button_small" onClick={onAdd}>+</button>
-                <span>{count}</span>
-                <button className="button_small" onClick={onSubstract}>-</button>
+                <button className="button_small" onClick={decrement}>-</button>
+                <span>{quantity}</span>
+                <button className="button_small" onClick={increment}>+</button>
             </div>
-            <button className="button">
+            <button className="button" onClick={() => onAdd(quantity)} disabled={!stock}>
                 Agregar al Carrito
             </button>
         </div>
