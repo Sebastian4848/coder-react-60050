@@ -17,7 +17,7 @@ const Item = ({item}) => {
         <h2>{item.title}</h2>
         <p>{item.description}</p>
         <span>${item.price}</span>
-        <ItemCount item={item}/>
+        {/* <ItemCount item={item}/> */}
     </div>
   )
 }
