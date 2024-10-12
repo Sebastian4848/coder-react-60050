@@ -1,5 +1,6 @@
 import React from 'react'
 import styles from '../Item/item.module.scss'
+import ItemCount from '../ItemCount/ItemCount'
 /*
     {
         "id": 21,
@@ -14,8 +15,9 @@ const Item = ({item}) => {
     <div className={styles.container}>
         <img src={item.pictureUrl}/>
         <h2>{item.title}</h2>
-        <span>{item.description}</span>
+        <p>{item.description}</p>
         <span>${item.price}</span>
+        <ItemCount item={item}/>
     </div>
   )
 }
