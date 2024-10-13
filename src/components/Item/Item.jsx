@@ -1,6 +1,8 @@
 import React from 'react'
 import styles from '../Item/item.module.scss'
 import ItemCount from '../ItemCount/ItemCount'
+
+//? Es un componente destinado a mostrar informacion breve del productoque el user clickeara para acceder a los detalles (componente de presentacion)
 /*
     {
         "id": 21,

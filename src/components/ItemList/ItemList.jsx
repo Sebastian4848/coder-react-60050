@@ -2,7 +2,8 @@ import React from 'react'
 import Item from '../Item/Item'
 import styles from '../ItemList/itemlist.module.scss'
 
-// En este componente hacemos el mapeo de los products y devolvemos un item por cada producto
+//? En este componente hacemos el mapeo de los products y devolvemos un item por cada producto (componente de presentacion)
+
 const ItemList = ({ products }) => {
   return (
     <div className={styles.container}>
