@@ -2,11 +2,15 @@ import React from 'react'
 import products from '../../assets/mockData.json'
 import ItemList from '../ItemList/ItemList'
 
-// Logica para traer los productos. Promise, setTimeout etc.
-const ItemListContainer = () => {
+const ItemListContainer = ({ greeting }) => {
 
+  return (
+    <div>
+      <h1 style={{ textAlign: 'center' }}>{greeting}</h1>
+      <ItemList products={products} />
+    </div>
 
-// console.log(products)
-  return <ItemList products={products} />}
+  )
+}
 
 export default ItemListContainer
