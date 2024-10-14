@@ -3,6 +3,7 @@ import products from '../../assets/mockData.json'
 import mockProducts from "../../assets/mockData.json"
 import ItemList from '../ItemList/ItemList'
 import { useParams } from "react-router-dom"
+import ItemDetailContainer from "../ItemDetailContainer/ItemDetailContainer"
 
 //? Tiene la logica para traer los productos. Promise, Set Timeout. (componente contenedor)
 
@@ -33,17 +34,18 @@ const ItemListContainer = ({ greeting }) => {
 
     }).catch((error) => {
       console.log(error)
-  })
+    })
 
 
-}, [categoryId])
+  }, [categoryId])
 
-return (
-  <div>
-    <h1 style={{ textAlign: 'center' }}>{greeting}</h1>
-    <ItemList products={products} />
-  </div>
+  return (
+    <div>
+      <h1 style={{ textAlign: 'center' }}>{greeting}</h1>
+      <ItemList products={products} />
+      <ItemDetailContainer />
+    </div>
 
-)
+  )
 }
 export default ItemListContainer

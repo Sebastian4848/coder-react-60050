@@ -3,6 +3,8 @@ import products from '../../assets/mockData.json'
 import Item from '../Item/Item'
 import ItemDetail from '../ItemDetail/ItemDetail'
 import { useParams } from "react-router-dom"
+import ItemCount from '../ItemCount/ItemCount'
+import styles from './itemdetailcontainer.module.scss'
 
 
 const ItemDetailContainer = () => {
@@ -29,7 +31,12 @@ const ItemDetailContainer = () => {
 
     }, [id])
 
-    return (product && <ItemDetail product={product} />)
+    return (product &&
+        <div ClassName={styles.container}>
+            <ItemDetail product={product} />
+            <ItemCount initial={1} stock={5} onAdd={(quantity) => console.log("ItemCount", quantity)} />
+        </div>
+    )
 }
 
 export default ItemDetailContainer
