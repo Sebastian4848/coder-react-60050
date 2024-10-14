@@ -10,7 +10,7 @@ import styles from './itemdetailcontainer.module.scss'
 const ItemDetailContainer = () => {
     const [product, setProduct] = useState(null)
 
-    const { id } = useParams()
+    const { itemId } = useParams()
 
     useEffect(() => {
 
@@ -21,7 +21,7 @@ const ItemDetailContainer = () => {
         })
 
         promise2.then((products) => {
-            const product = products.find(productToFind => productToFind.id === Number(id))
+            const product = products.find(productToFind => productToFind.id === Number(itemId))
             setProduct(product)
 
         }).catch((error) => {
@@ -29,10 +29,10 @@ const ItemDetailContainer = () => {
         })
 
 
-    }, [id])
+    }, [itemId])
 
     return (product &&
-        <div ClassName={styles.container}>
+        <div className={styles.container}>
             <ItemDetail product={product} />
             <ItemCount initial={1} stock={5} onAdd={(quantity) => console.log("ItemCount", quantity)} />
         </div>
