@@ -1,23 +1,44 @@
 import React from 'react'
-import styles from '../NavBar/navbar.module.scss'
+import styles from './navbar.module.scss'
 import CartWidget from '../CartWidget/CartWidget'
+import { Link, NavLink } from 'react-router-dom'
 
 
 const NavBar = () => {
     return (
         <ul>
             <div>
-                <li><a className={styles.active} href="#home"></a></li>
-                <li><a href="#dogs">Dogs</a></li>
-                <li><a href="#cats">Cats</a></li>
-                <li><a href="#complementos">Complementos</a></li>
-                <li><a href="#ofertas">Ofertas</a></li>
+                <li>
+                    <NavLink className={({ isActive }) => { return isActive ? styles.isActive : styles.notActive }} to={"/"}>
+                        Home
+                    </NavLink>
+                </li>
+                <li>
+                    <NavLink className={({ isActive }) => { return isActive ? styles.isActive : styles.notActive }} to={"/category/jewelery"}>
+                        Jewelery
+                    </NavLink>
+                </li>
+                <li>
+                    <NavLink className={({ isActive }) => { return isActive ? styles.isActive : styles.notActive }} to={"/category/electronics"}>
+                        Electronics
+                    </NavLink>
+                </li>
+                <li>
+                    <NavLink className={({ isActive }) => { return isActive ? styles.isActive : styles.notActive }} to={"/category/men clothing"}>
+                        Men clothing
+                    </NavLink>
+                </li>
+                <li>
+                    <NavLink className={({ isActive }) => { return isActive ? styles.isActive : styles.notActive }} to={"/category/women clothing"}>
+                        Women clothing
+                    </NavLink>
+                </li>
             </div>
 
             <div>
                 <h1>Tienda WauDogShop</h1>
             </div>
-            
+
             <div>
                 <CartWidget />
             </div>
