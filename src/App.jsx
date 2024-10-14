@@ -21,7 +21,6 @@ function App() {
         {/* <ItemDetailContainer /> */}
         {/* <ItemListContainer greeting="Bienvenidos" /> */}
         {/* <ItemCount initial = {1} stock = {10} onAdd = {(quantity) => console.log("Cantidad agregada", quantity)}/> */}
-        <h2>Bienvenidos a la clase 9</h2>
       </Layout>
     </BrowserRouter>
   )

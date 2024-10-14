@@ -8,40 +8,42 @@ import { useParams } from "react-router-dom"
 
 const ItemListContainer = ({ greeting }) => {
   const [products, setProducts] = useState([])
+  const [error, setError] = useState(null)
+  const [loading, setLoading] = useState(false)
 
   const { categoryId } = useParams()
 
   useEffect(() => {
 
-const promise1 = new Promise((resolve, reject) => {
-  setTimeout(() => {
-    resolve(mockProducts)
-  }, 2000)
-})
+    const promise1 = new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve(mockProducts)
+      }, 2000)
+    })
 
-promise1.then((products) => {
+    promise1.then((products) => {
 
-  let productsFiltered
-  if (categoryId) {
-    productsFiltered = mockProducts.filter(f => f.category === categoryId)
-  } else {
-    productsFiltered = mockProducts
-  }
-  setProducts(productsFiltered)
+      let productsFiltered
+      if (categoryId) {
+        productsFiltered = mockProducts.filter(f => f.category === categoryId)
+      } else {
+        productsFiltered = mockProducts
+      }
+      setProducts(productsFiltered)
 
-})
+    }).catch((error) => {
+      console.log(error)
+  })
 
-  }, [categoryId])
 
-  //! Falta generar la promise con el retraso de 2 segundos
+}, [categoryId])
 
-  return (
-    <div>
-      <h1 style={{ textAlign: 'center' }}>{greeting}</h1>
-      <ItemList products={products} />
-    </div>
+return (
+  <div>
+    <h1 style={{ textAlign: 'center' }}>{greeting}</h1>
+    <ItemList products={products} />
+  </div>
 
-  )
+)
 }
-
 export default ItemListContainer
