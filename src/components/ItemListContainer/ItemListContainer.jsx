@@ -9,18 +9,29 @@ import { useParams } from "react-router-dom"
 const ItemListContainer = ({ greeting }) => {
   const [products, setProducts] = useState([])
 
-  const {categoryId} = useParams()
+  const { categoryId } = useParams()
 
   useEffect(() => {
-    let productsFiltered
-    if (categoryId) {
-        productsFiltered =mockProducts.filter(f=>f.category===categoryId)            
-    }else{
-        productsFiltered = mockProducts
-    }
-    setProducts(productsFiltered)
-    
-}, [categoryId])
+
+const promise1 = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    resolve(mockProducts)
+  }, 2000)
+})
+
+promise1.then((products) => {
+
+  let productsFiltered
+  if (categoryId) {
+    productsFiltered = mockProducts.filter(f => f.category === categoryId)
+  } else {
+    productsFiltered = mockProducts
+  }
+  setProducts(productsFiltered)
+
+})
+
+  }, [categoryId])
 
   //! Falta generar la promise con el retraso de 2 segundos
 
