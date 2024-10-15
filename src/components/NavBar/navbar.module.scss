@@ -50,9 +50,9 @@ li a:hover {
 
 .isActive {
     @extend .notActive;
-    background-color: fuchsia;
+    background-color: rgb(170, 129, 170);
 
     &:hover {
-        background-color: fuchsia;
+        background-color:  rgb(170, 129, 170);
     }
 }
