@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react"
 import styles from "./itemcount.module.scss"
 
-const ItemCount = ({stock, initial,onAdd}) => {
+
+// addCart es una funcion
+const ItemCount = ({stock, initial,onAdd, addCart}) => {
 
     const [quantity, setQuantity] = useState(initial)
 
@@ -30,7 +32,9 @@ const ItemCount = ({stock, initial,onAdd}) => {
                 <span>{quantity}</span>
                 <button className={styles.button_small} onClick={increment}>+</button>
             </div>
-            <button className={styles.button} onClick={() => onAdd(quantity)} disabled={!stock}>
+            {/* <button className={styles.button} onClick={() => onAdd(quantity)} disabled={!stock}> */}
+
+            <button className={styles.button} onClick={() => addCart(quantity)}>
                 Agregar al Carrito
             </button>
         </div>

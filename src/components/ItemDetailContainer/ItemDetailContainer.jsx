@@ -34,7 +34,7 @@ const ItemDetailContainer = () => {
     return (product &&
         <div className={styles.container}>
             <ItemDetail product={product} />
-            <ItemCount initial={1} stock={5} onAdd={(quantity) => console.log("ItemCount", quantity)} />
+            {/* <ItemCount initial={1} stock={5} onAdd={(quantity) => console.log("ItemCount", quantity)} /> */}
         </div>
     )
 }
