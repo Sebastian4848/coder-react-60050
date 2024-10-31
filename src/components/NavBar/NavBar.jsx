@@ -2,9 +2,16 @@ import React from 'react'
 import styles from './navbar.module.scss'
 import CartWidget from '../CartWidget/CartWidget'
 import { Link, NavLink } from 'react-router-dom'
+import Switch from '../Switch/Switch'
+import { useContext, useState } from 'react'
+import { Theme } from '../../Context/ThemeProvider'
 
 
 const NavBar = () => {
+
+        //Consumir el contexto Theme
+        const {dark, setDark} = useContext(Theme)
+
     return (
         <ul>
             <div>
@@ -32,6 +39,9 @@ const NavBar = () => {
                     <NavLink className={({ isActive }) => { return isActive ? styles.isActive : styles.notActive }} to={"/category/women clothing"}>
                         Women clothing
                     </NavLink>
+                </li>
+                <li>
+                    <Switch checked={dark} setChecked={setDark} />
                 </li>
             </div>
 
