@@ -1,15 +1,20 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from "react"
 import styles from './itemdetail.module.scss'
 import ItemCount from '../ItemCount/ItemCount'
+import { Cart } from '../../Context/CartProvider'
 
 
 const ItemDetail = ({ product }) => {
+    //? Añadido
+    const {addCart} = useContext(Cart)
     const [itemCountVisibility, setItemCountVisibility] = useState(true)
     console.log(product)
 
     const handleCart = (quantity) => {
         console.log(quantity);
         setItemCountVisibility(false)
+        //? Añadido
+        addCart(product, quantity)
     }
 
     return (
