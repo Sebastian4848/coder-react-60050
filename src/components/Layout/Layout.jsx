@@ -3,7 +3,7 @@ import NavBar from "../NavBar/NavBar"
 import Footer from "../Footer/Footer"
 import styles from './layout.module.scss'
 import { useContext } from "react"
-import { Theme } from "../../Context/ThemeProvider"
+import { Theme } from "../../context/ThemeProvider"
 
 const Layout = ({ children }) => {
 

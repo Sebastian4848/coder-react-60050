@@ -16,7 +16,7 @@ const ItemDetailContainer = () => {
         const promise2 = new Promise((resolve, reject) => {
             setTimeout(() => {
                 resolve(products)
-            }, 2000)
+            }, 100)
         })
 
         promise2.then((products) => {

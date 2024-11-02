@@ -4,7 +4,7 @@ import CartWidget from '../CartWidget/CartWidget'
 import { Link, NavLink } from 'react-router-dom'
 import Switch from '../Switch/Switch'
 import { useContext, useState } from 'react'
-import { Theme } from '../../Context/ThemeProvider'
+import { Theme } from '../../context/ThemeProvider'
 
 
 const NavBar = () => {

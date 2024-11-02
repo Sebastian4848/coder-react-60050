@@ -6,8 +6,9 @@ import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailCont
 import Layout from "./components/Layout/Layout"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import NotFound from "./components/NotFound/NotFound"
-import ThemeProvider from "./Context/ThemeProvider"
-import CartProvider from "./Context/CartProvider"
+import ThemeProvider from "./context/ThemeProvider"
+import CartProvider from "./context/CartProvider"
+import Cart from "./components/Cart/Cart"
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
               <Route path="/category/:categoryId" element={<ItemListContainer />} />
               <Route path="/detail/:itemId" element={<ItemDetailContainer />} />
               <Route path="*" element={<NotFound />} />
+              <Route path="/cart" element={<Cart />} />
             </Routes>
             {/* <NavBar /> */}
             {/* <ItemDetailContainer /> */}

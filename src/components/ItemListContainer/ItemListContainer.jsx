@@ -19,7 +19,7 @@ const ItemListContainer = ({ greeting }) => {
     const promise1 = new Promise((resolve, reject) => {
       setTimeout(() => {
         resolve(mockProducts)
-      }, 2000)
+      }, 100)
     })
 
     promise1.then((products) => {

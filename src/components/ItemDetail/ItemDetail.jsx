@@ -1,12 +1,13 @@
 import React, { useState, useContext } from "react"
 import styles from './itemdetail.module.scss'
 import ItemCount from '../ItemCount/ItemCount'
-import { Cart } from '../../Context/CartProvider'
+import { Cart } from '../../context/CartProvider'
+import { NavLink } from "react-router-dom"
 
 
 const ItemDetail = ({ product }) => {
     //? Añadido
-    const {addCart} = useContext(Cart)
+    const { addCart } = useContext(Cart)
     const [itemCountVisibility, setItemCountVisibility] = useState(true)
     console.log(product)
 
@@ -19,16 +20,20 @@ const ItemDetail = ({ product }) => {
 
     return (
         <div className={styles.container}>
-            <img src={product.pictureUrl} style={{width: 300}}/>
+            <img src={product.pictureUrl} style={{ width: 300 }} />
             <h1>{product.title}</h1>
             <p>{product.description}</p>
             <span>${product.price}</span>
             {/* Item Count */}
-            {itemCountVisibility ? (<ItemCount initial={1} stock={5} addCart={handleCart}/>):(<button>Go Cart</button>)}
+            {itemCountVisibility ? (<ItemCount initial={1} stock={5} addCart={handleCart} />) : (
+                <button>
+                    <NavLink to="/cart">Go Cart</NavLink>
+                </button>
+            )}
         </div>
     )
 }
 
-{/* <ItemCount initial={1} stock={5} onAdd={(quantity) => console.log("ItemCount", quantity)} /> */}
+{/* <ItemCount initial={1} stock={5} onAdd={(quantity) => console.log("ItemCount", quantity)} /> */ }
 
 export default ItemDetail
