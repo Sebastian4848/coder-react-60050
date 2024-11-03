@@ -5,6 +5,7 @@ import styles from './Cart.module.scss'
 import { NavLink } from 'react-router-dom'
 import { collection, addDoc , serverTimestamp} from "firebase/firestore";
 import { db } from '../../firebase/config'
+import endPurchase from '../../services/endPurchase'
 
 const Cart = () => {
     const { cart } = useContext(CartContext)
@@ -42,7 +43,7 @@ const Cart = () => {
                 {cart.map(cartitem => {
                     return <CartItem item={cartitem} key={cartitem.id} />
                 })}
-                <button onClick={handlePurchase}>End purchase</button>
+                <button onClick={()=>endPurchase(cart)}>End purchase</button>
             </>
         ) : (
             <>
