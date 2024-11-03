@@ -8,7 +8,7 @@ const CartProvider = ({ children }) => {
 
     const addCart = (product, productQuantity) => {
         const productInCart = isInCart(product.id);
-        let cartUpdated;
+        let cartUpdated = [...cart]
 
         if (productInCart) {
             cartUpdated = cart.map(cartProduct => {
@@ -22,7 +22,8 @@ const CartProvider = ({ children }) => {
                 return cartProduct;
             });
         } else {
-            cartUpdated = [...cart, { ...product, quantity: productQuantity }];
+            // cartUpdated = [...cart, { ...product, quantity: productQuantity }];
+            cartUpdated.push({...product, quantity: productQuantity})
         }
 
         setCart(cartUpdated);
