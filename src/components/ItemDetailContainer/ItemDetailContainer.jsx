@@ -40,29 +40,7 @@ const ItemDetailContainer = () => {
             }
         })()
 
-        // const promise2 = new Promise((resolve, reject) => {
-        //     setTimeout(() => {
-        //         resolve(products)
-        //     }, 100)
-        // })
-        // promise2.then((products) => {
-        //     const productFound = products.find(productToFind => productToFind.id === Number(itemId))
-        //     setProduct(productFound)
-
-        // }).catch((error) => {
-        //     console.log(error)
-        // })
-
-
-        // }, [itemId])
     }, [id])
-
-    // return (product &&
-    //     <div className={styles.container}>
-    //         <ItemDetail product={product} />
-    //         {/* <ItemCount initial={1} stock={5} onAdd={(quantity) => console.log("ItemCount", quantity)} /> */}
-    //     </div>
-    // )
 
 
     // return product && < ItemDetail product={product} />
@@ -74,9 +52,7 @@ const ItemDetailContainer = () => {
         return <p>{error}</p>;  // Mostrar mensaje de error si ocurre
     }
 
-    return product ? <ItemDetail product={product} /> : <p>Product not found</p>;
+    return product && < ItemDetail product={product} />
 }
-
-
 
 export default ItemDetailContainer

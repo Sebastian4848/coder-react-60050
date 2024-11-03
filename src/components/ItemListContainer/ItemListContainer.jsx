@@ -51,42 +51,7 @@ const ItemListContainer = ({ greeting }) => {
 
     })()
 
-
-
-
-    // const promise1 = new Promise((resolve, reject) => {
-    //   setTimeout(() => {
-    //     resolve(mockProducts)
-    //   }, 100)
-    // })
-
-    // promise1.then((products) => {
-
-    //   let productsFiltered
-    //   if (categoryId) {
-    //     productsFiltered = mockProducts.filter(f => f.category === categoryId)
-    //   } else {
-    //     productsFiltered = mockProducts
-    //   }
-    //   setProducts(productsFiltered)
-
-    // }).catch((error) => {
-    //   console.log(error)
-    // })
-    // setProducts(productsFiltered)
-
   }, [categoryId])
-
-  //   return (
-  //     <div>
-  //       <h1 style={{ textAlign: 'center' }}>{greeting}</h1>
-  //       <ItemList products={products} />
-  //       <ItemDetailContainer />
-  //     </div>
-
-  //   )
-  // }
-  // export default ItemListContainer
 
   return (
     <div>
