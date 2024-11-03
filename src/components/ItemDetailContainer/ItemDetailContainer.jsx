@@ -3,18 +3,21 @@ import ItemDetail from '../ItemDetail/ItemDetail'
 import { useParams } from "react-router-dom"
 import { doc, getDoc } from "firebase/firestore"
 import { db } from "../../firebase/config"
+import Loader from "../Loader/Loader"
 
 
 const ItemDetailContainer = () => {
     const [product, setProduct] = useState(null)
     const { id } = useParams()
+    const [error, setError] = useState(null)
+    const [loading, setLoading] = useState(false)
     // const { itemId } = useParams()
 
     useEffect(() => {
         if (!id) return; // Ensure id is defined
 
         (async () => {
-
+            setLoading(true);
             try {
                 // const docRef = doc(db, "products", itemId);
                 const docRef = doc(db, "products", id);
@@ -23,7 +26,7 @@ const ItemDetailContainer = () => {
                 if (docSnap.exists()) {
                     console.log("Document data:", docSnap.data());
                     // setProduct({...docSnap.data(), itemId})
-                    setProduct({...docSnap.data(), id})
+                    setProduct({ ...docSnap.data(), id })
                 } else {
                     // docSnap.data() will be undefined in this case
                     console.log("No such document!");
@@ -31,6 +34,9 @@ const ItemDetailContainer = () => {
 
             } catch (error) {
                 console.log(error)
+                setError("Failed to load products");
+            } finally {
+                setLoading(false);  // Set loading to false after fetch is done
             }
         })()
 
@@ -48,8 +54,8 @@ const ItemDetailContainer = () => {
         // })
 
 
-// }, [itemId])
-}, [id])
+        // }, [itemId])
+    }, [id])
 
     // return (product &&
     //     <div className={styles.container}>
@@ -58,7 +64,17 @@ const ItemDetailContainer = () => {
     //     </div>
     // )
 
-    return product && <ItemDetail product={product} />
+
+    // return product && < ItemDetail product={product} />
+    if (loading) {
+        return <Loader />;  // Mostrar el Loader mientras carga
+    }
+
+    if (error) {
+        return <p>{error}</p>;  // Mostrar mensaje de error si ocurre
+    }
+
+    return product ? <ItemDetail product={product} /> : <p>Product not found</p>;
 }
 
 

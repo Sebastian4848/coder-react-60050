@@ -6,6 +6,7 @@ import { useParams } from "react-router-dom"
 import ItemDetailContainer from "../ItemDetailContainer/ItemDetailContainer"
 import { db } from "../../firebase/config"
 import { collection, query, where, getDocs } from "firebase/firestore";
+import Loader from "../Loader/Loader"
 
 //? Tiene la logica para traer los productos. Promise, Set Timeout. (componente contenedor)
 
@@ -18,7 +19,7 @@ const ItemListContainer = ({ greeting }) => {
 
   useEffect(() => {
     (async () => {
-
+      setLoading(true);  // Set loading to true when starting fetch
       try {
         let productsFiltered = []
 
@@ -43,7 +44,11 @@ const ItemListContainer = ({ greeting }) => {
         setProducts(productsFiltered)
       } catch (error) {
         console.log(error)
+        setError("Failed to load products");
+      } finally {
+        setLoading(false);  // Set loading to false after fetch is done
       }
+
     })()
 
 
@@ -72,13 +77,30 @@ const ItemListContainer = ({ greeting }) => {
 
   }, [categoryId])
 
+  //   return (
+  //     <div>
+  //       <h1 style={{ textAlign: 'center' }}>{greeting}</h1>
+  //       <ItemList products={products} />
+  //       <ItemDetailContainer />
+  //     </div>
+
+  //   )
+  // }
+  // export default ItemListContainer
+
   return (
     <div>
       <h1 style={{ textAlign: 'center' }}>{greeting}</h1>
-      <ItemList products={products} />
+      {loading ? (
+        <Loader/>
+      ) : error ? (
+        <p style={{ textAlign: 'center', color: 'red' }}>{error}</p>
+      ) : (
+        <ItemList products={products} />
+      )}
       <ItemDetailContainer />
     </div>
+  );
+};
 
-  )
-}
-export default ItemListContainer
+export default ItemListContainer;
