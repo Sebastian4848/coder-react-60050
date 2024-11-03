@@ -7,10 +7,7 @@ import { NavLink } from 'react-router-dom'
 const Cart = () => {
     const { cart } = useContext(CartContext)
     console.log({ cart });
-    return <div className={styles.container}>
-
-
-
+    return (<div className={styles.container}>
 
         {
             cart.length ?
@@ -24,6 +21,7 @@ const Cart = () => {
                 </>
         }
     </div>
+    )
 }
 
 export default Cart

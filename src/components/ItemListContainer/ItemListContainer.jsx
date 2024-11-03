@@ -4,6 +4,8 @@ import mockProducts from "../../assets/mockData.json"
 import ItemList from '../ItemList/ItemList'
 import { useParams } from "react-router-dom"
 import ItemDetailContainer from "../ItemDetailContainer/ItemDetailContainer"
+import { db } from "../../firebase/config"
+import { collection, query, where, getDocs } from "firebase/firestore";
 
 //? Tiene la logica para traer los productos. Promise, Set Timeout. (componente contenedor)
 
@@ -15,27 +17,58 @@ const ItemListContainer = ({ greeting }) => {
   const { categoryId } = useParams()
 
   useEffect(() => {
+    (async () => {
 
-    const promise1 = new Promise((resolve, reject) => {
-      setTimeout(() => {
-        resolve(mockProducts)
-      }, 100)
-    })
+      try {
+        let productsFiltered = []
 
-    promise1.then((products) => {
+        if (categoryId) {
 
-      let productsFiltered
-      if (categoryId) {
-        productsFiltered = mockProducts.filter(f => f.category === categoryId)
-      } else {
-        productsFiltered = mockProducts
+          const q = query(collection(db, "products"), where("category", "==", categoryId))
+
+          const querySnapshot = await getDocs(q);
+          querySnapshot.forEach((doc) => {
+            console.log(doc.id, " => ", doc.data());
+            productsFiltered.push({ id: doc.id, ...doc.data() })
+          });
+
+        } else {
+          const querySnapshot = await getDocs(collection(db, "products"));
+          querySnapshot.forEach((doc) => {
+            console.log(`${doc.id} => ${doc.data()}`);
+            productsFiltered.push({ id: doc.id, ...doc.data() })
+          })
+        }
+
+        setProducts(productsFiltered)
+      } catch (error) {
+        console.log(error)
       }
-      setProducts(productsFiltered)
+    })()
 
-    }).catch((error) => {
-      console.log(error)
-    })
 
+
+
+    // const promise1 = new Promise((resolve, reject) => {
+    //   setTimeout(() => {
+    //     resolve(mockProducts)
+    //   }, 100)
+    // })
+
+    // promise1.then((products) => {
+
+    //   let productsFiltered
+    //   if (categoryId) {
+    //     productsFiltered = mockProducts.filter(f => f.category === categoryId)
+    //   } else {
+    //     productsFiltered = mockProducts
+    //   }
+    //   setProducts(productsFiltered)
+
+    // }).catch((error) => {
+    //   console.log(error)
+    // })
+    // setProducts(productsFiltered)
 
   }, [categoryId])
 
