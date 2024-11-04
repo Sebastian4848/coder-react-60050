@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { Cart as CartContext } from '../../context/CartProvider'
+import CartProvider, { Cart as CartContext } from '../../context/CartProvider'
 import CartItem from '../CartItem/CartItem'
 import styles from './Cart.module.scss'
 import { NavLink } from 'react-router-dom'
@@ -9,6 +9,7 @@ import endPurchase from '../../services/endPurchase'
 
 const Cart = () => {
     const { cart } = useContext(CartContext)
+    const price = cart.reduce((acc, item) => acc + item.price, 0)
     console.log({ cart });
     console.log("Cart items:", cart);  // Check if cart data is as expected
 
@@ -43,6 +44,7 @@ const Cart = () => {
                 {cart.map(cartitem => {
                     return <CartItem item={cartitem} key={cartitem.id} />
                 })}
+                <p>Total: {price}</p>
                 <button onClick={()=>endPurchase(cart)}>End purchase</button>
             </>
         ) : (

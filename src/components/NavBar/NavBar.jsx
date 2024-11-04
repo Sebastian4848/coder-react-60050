@@ -9,8 +9,8 @@ import { Theme } from '../../context/ThemeProvider'
 
 const NavBar = () => {
 
-        //Consumir el contexto Theme
-        const {dark, setDark} = useContext(Theme)
+    //Consumir el contexto Theme
+    const { dark, setDark } = useContext(Theme)
 
     return (
         <ul>
@@ -50,7 +50,9 @@ const NavBar = () => {
             </div>
 
             <div>
-                <CartWidget />
+                <NavLink to={'/cart'}>
+                    <CartWidget />
+                </NavLink>
             </div>
         </ul>
     )

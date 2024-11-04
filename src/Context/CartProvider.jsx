@@ -5,6 +5,7 @@ export const Cart = createContext();
 const CartProvider = ({ children }) => {
     const [cart, setCart] = useState([]);
     const [quantity, setQuantity] = useState(0);
+    const [price, setPrice] = useState(0);
 
     const addCart = (product, productQuantity) => {
         const productInCart = isInCart(product.id);
@@ -23,11 +24,12 @@ const CartProvider = ({ children }) => {
             });
         } else {
             // cartUpdated = [...cart, { ...product, quantity: productQuantity }];
-            cartUpdated.push({...product, quantity: productQuantity})
+            cartUpdated.push({ ...product, quantity: productQuantity })
         }
 
         setCart(cartUpdated);
-        // setQuantity(cartUpdated.length);
+        setQuantity(cartUpdated.reduce((acc, item) => acc + item.quantity, 0));
+        setPrice(cartUpdated.reduce((acc, item) => acc + item.price, 0));
     };
 
     const isInCart = (productId) => {
@@ -35,7 +37,10 @@ const CartProvider = ({ children }) => {
     };
 
     return (
-        <Cart.Provider value={{ cart, addCart, quantity }}>{children}</Cart.Provider>
+        // <Cart.Provider value={{ cart, addCart, quantity }}>{children}</Cart.Provider>
+        <Cart.Provider value={{ cart, addCart, quantity: cart.reduce((acc, item) => acc + item.quantity, 0) }}>
+            {children}
+        </Cart.Provider>
     );
 };
 
