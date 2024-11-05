@@ -22,7 +22,7 @@ const Item = ({ item }) => {
       <span>${item.price}</span>
       {/* <ItemCount item={item}/> */}
       <NavLink to={`/detail/${item.id}`}>
-        <button>Detail</button>
+        <button className={styles.button}>Detail</button>
       </NavLink>
     </div>
   )

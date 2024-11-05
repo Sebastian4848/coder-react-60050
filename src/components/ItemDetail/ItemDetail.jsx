@@ -20,16 +20,27 @@ const ItemDetail = ({ product }) => {
 
     return (
         <div className={styles.container}>
-            <img src={product.pictureUrl} style={{ width: 300 }} />
-            <h1>{product.title}</h1>
-            <p>{product.description}</p>
-            <span>${product.price}</span>
-            {/* Item Count */}
-            {itemCountVisibility ? (<ItemCount initial={1} stock={5} addCart={handleCart} />) : (
-                <button>
-                    <NavLink to="/cart">Go Cart</NavLink>
-                </button>
-            )}
+            <img src={product.pictureUrl} className={styles.image} />
+            <div className={styles.subcontainer}>
+                <h1>{product.title}</h1>
+                <p className={styles.text}>{product.description}</p>
+                <span style={{ fontSize: 30 }}>${product.price}</span>
+                {/* Item Count */}
+                {itemCountVisibility ? (<ItemCount initial={1} stock={5} addCart={handleCart} />) : (
+                    <>
+                        <NavLink to="/cart">
+                            <button className={styles.button}>Ir al Carrito de Compras</button>
+                        </NavLink>
+                        <NavLink to="/">
+                            <button className={styles.button}>
+                                Ir a Home
+                            </button>
+                        </NavLink>
+                    </>
+
+
+                )}
+            </div>
         </div>
     )
 }

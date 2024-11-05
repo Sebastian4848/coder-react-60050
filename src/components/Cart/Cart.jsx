@@ -50,7 +50,9 @@ const Cart = () => {
         ) : (
             <>
                 <h1>No hay productos en el cart</h1>
-                <NavLink to="/">Home</NavLink>
+                <button style={{ margin: 20 }}>
+                <NavLink to="/">Seguir comprando</NavLink>
+                </button>
             </>
         )}
     </div>

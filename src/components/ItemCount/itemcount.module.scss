@@ -20,20 +20,30 @@
 }
 
 .button_small {
-background-color: #f2798e;
+background-color:#489d97;
 height: 30px;
 width: 50px;
+border-radius: 6px;
 }
 
-.button {
-    background-color: #f2798e;
-    height: 30px;
-    width: 100%;
-    }
+// .button {
+//     background-color: #489d97;
+//     height: 30px;
+//     width: 100%;
+//     border-radius: 6px;
+//     }
 
 div span {
-    width: 80px;
+    width: 100px;
     text-align: center;
     color: black;
 }
 
+.button {
+    background-color: #489d97;
+    border-radius: 6px;
+    text-decoration: none;
+    padding: 10px;
+    margin: 10px;
+    width: 200px;
+}

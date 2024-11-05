@@ -8,15 +8,21 @@ ul div {
 
 
 ul {
+    width: 100%;
     list-style-type: none;
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #c58e8e;
+    background-color: white;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
+}
 
+ul li {
+    width: calc((100%)/4);
+border:gray 1px solid;
+border-radius: 15px;
 }
 
 li {
@@ -32,7 +38,7 @@ li a {
 }
 
 li a:hover {
-    background-color: #111;
+    background-color:#698da6;
 }
 
 .notActive {
@@ -41,10 +47,11 @@ li a:hover {
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
-    background-color: #333;
+    background-color:#698da6;
+    border-radius: 15px;
 
     &:hover {
-        background-color: #111;
+        background-color: #698da6;
     }
 }
 

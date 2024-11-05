@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom"
 import { doc, getDoc } from "firebase/firestore"
 import { db } from "../../firebase/config"
 import Loader from "../Loader/Loader"
+import styles from "./ItemDetailContainer.module.scss"
 
 
 const ItemDetailContainer = () => {
@@ -52,7 +53,9 @@ const ItemDetailContainer = () => {
         return <p>{error}</p>;  // Mostrar mensaje de error si ocurre
     }
 
-    return product && < ItemDetail product={product} />
+    return product && <div className={styles.container}>
+        < ItemDetail product={product} />
+    </div>
 }
 
 export default ItemDetailContainer

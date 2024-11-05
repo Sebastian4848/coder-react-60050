@@ -1,0 +1,17 @@
+.text{
+font-size: 30px;
+font-weight: bold;
+color: gray;
+text-decoration: none;
+padding: 5px;
+
+}
+.container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    width: 80px;
+
+}
