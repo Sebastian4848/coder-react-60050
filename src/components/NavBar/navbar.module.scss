@@ -23,10 +23,12 @@ ul li {
     width: calc((100%)/4);
 border:gray 1px solid;
 border-radius: 15px;
+list-style: none;
 }
 
 li {
     float: left;
+    list-style: none;
 }
 
 li a {

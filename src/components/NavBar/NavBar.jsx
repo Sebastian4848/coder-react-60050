@@ -24,7 +24,7 @@ const NavBar = () => {
                 </div>
                 <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', width: 200 }}>
                     <Switch checked={dark} setChecked={setDark} />
-                    <NavLink to={'/cart'} ><CartWidget /></NavLink>
+                    <CartWidget/>
                 </div>
             </div>
             <ul>

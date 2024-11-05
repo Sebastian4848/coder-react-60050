@@ -10,7 +10,7 @@ const CartWidget = () => {
     return (
         <>
             <NavLink to={'/cart'} className={styles.container}>
-                <span className={styles.text} >{quantity}</span>
+                <span className={styles.text} >({quantity})</span>
                 <img src={cart} alt='cart' style={{ width: 50 }} />
             </NavLink>
         </>
