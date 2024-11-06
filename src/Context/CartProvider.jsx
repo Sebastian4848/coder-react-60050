@@ -35,13 +35,20 @@ const CartProvider = ({ children }) => {
         setPrice(cartUpdated.reduce((acc, item) => acc + item.price, 0));
     };
 
+    const removeFromCart = (productId) => {
+        const cartUpdated = cart.filter(cartProduct => cartProduct.id !== productId);
+        setCart(cartUpdated);
+        setQuantity(cartUpdated.reduce((acc, item) => acc + item.quantity, 0));
+        setPrice(cartUpdated.reduce((acc, item) => acc + item.price, 0));
+    };
+
     const isInCart = (productId) => {
         return cart.some(cartProduct => cartProduct.id === productId);
     };
 
     return (
         // <Cart.Provider value={{ cart, addCart, quantity }}>{children}</Cart.Provider>
-        <Cart.Provider value={{ cart, addCart, clearCart, quantity: cart.reduce((acc, item) => acc + item.quantity, 0) }}>
+        <Cart.Provider value={{ cart, addCart, removeFromCart,clearCart, quantity: cart.reduce((acc, item) => acc + item.quantity, 0) }}>
             {children}
         </Cart.Provider>
     );
