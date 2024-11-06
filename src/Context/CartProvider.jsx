@@ -6,6 +6,9 @@ const CartProvider = ({ children }) => {
     const [cart, setCart] = useState([]);
     const [quantity, setQuantity] = useState(0);
     const [price, setPrice] = useState(0);
+    const clearCart = () => {
+        setCart([]);
+    };
 
     const addCart = (product, productQuantity) => {
         const productInCart = isInCart(product.id);
@@ -38,7 +41,7 @@ const CartProvider = ({ children }) => {
 
     return (
         // <Cart.Provider value={{ cart, addCart, quantity }}>{children}</Cart.Provider>
-        <Cart.Provider value={{ cart, addCart, quantity: cart.reduce((acc, item) => acc + item.quantity, 0) }}>
+        <Cart.Provider value={{ cart, addCart, clearCart, quantity: cart.reduce((acc, item) => acc + item.quantity, 0) }}>
             {children}
         </Cart.Provider>
     );

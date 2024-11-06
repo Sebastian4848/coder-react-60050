@@ -7,9 +7,9 @@ const CartItem = ({ item }) => {
             <img src={item.pictureUrl} />
             <h1>{item.title}</h1>
             <p>{item.description}</p>
-            <p>{item.price}</p>
-            <p>{item.quantity}</p>
-            <button>Delete</button>
+            <p style={{ fontSize: 20, fontWeight: 'bold' }}>Precio: {item.price}</p>
+            <p style={{ fontSize: 20, fontWeight: 'bold' }}>Cantidad: {item.quantity}</p>
+            <button className={styles.button}>Eliminar</button>
         </div>
     )
 }

@@ -3,16 +3,30 @@
     grid-template-columns: 1fr 1.5fr 2fr repeat(3, 0.5fr);
     grid-column-gap: 20px;
     padding: 20px;
-    align-items: flex-start;
-    text-align: left;
+    align-items: center;
+    text-align: center;
+    background-color: rgb(240, 240, 240);
+    border: 1px solid black;
+    padding: 10px;
+    margin: 10PX;
+    border-radius: 25px;
+
     img {
-        padding-top: 20px;
-        width: 200px;
+        padding: 20px;
+        width: 300px;
+        border-radius: 35px;
     }
-    button {
-        height: 50px;
-    }
+
     p{
         text-align: center;
     }
+}
+
+.button {
+    background-color: #489d97;
+    border-radius: 6px;
+    text-decoration: none;
+    padding: 10px;
+    margin: 10px;
+    width: 100px;
 }
