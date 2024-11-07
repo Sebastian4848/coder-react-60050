@@ -1,0 +1,62 @@
+.checkoutContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    border-radius: 25px;
+    background-color: rgb(255, 255, 255);
+    border: #489d97 2px solid;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+        rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+
+    h1 {
+        font-size: 24px;
+        color: #222831;
+        padding-bottom: 15px;
+    }
+
+    h2, h3 {
+        padding: 20px;
+        color: #222831;
+    }
+
+    .form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 10px;
+        gap: 15px;
+
+        input {
+            font-size: 18px;
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid #489d97;
+            width: 80%;
+            margin-bottom: 10px;
+            background-color: rgb(240, 240, 240);
+        }
+
+        .submitButton {
+            cursor: pointer;
+            background-color: #489d97;
+            color: white;
+            border-radius: 10px;
+            padding: 10px 20px;
+            font-size: 18px;
+            margin-top: 10px;
+            width: 200px;
+            text-align: center;
+            transition: background-color 0.3s;
+
+            &:hover {
+                background-color: #3a8d85;
+            }
+
+            &:active {
+                background-color: #348176;
+            }
+        }
+    }
+}

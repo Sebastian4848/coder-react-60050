@@ -29,23 +29,28 @@ const NavBar = () => {
             </div>
             <ul>
                 <li>
-                    <NavLink className={({ isActive }) => { return isActive ? styles.isActive : styles.notActive }} to={"/category/jewelery"}>
-                        Jewelery
+                    <NavLink className={({ isActive }) => { return isActive ? styles.isActive : styles.notActive }} to={"/category/arnes"}>
+                        Arneses
                     </NavLink>
                 </li>
                 <li>
-                    <NavLink className={({ isActive }) => { return isActive ? styles.isActive : styles.notActive }} to={"/category/electronics"}>
-                        Electronics
+                    <NavLink className={({ isActive }) => { return isActive ? styles.isActive : styles.notActive }} to={"/category/collar"}>
+                        Collares
                     </NavLink>
                 </li>
                 <li>
-                    <NavLink className={({ isActive }) => { return isActive ? styles.isActive : styles.notActive }} to={"/category/men clothing"}>
-                        Men clothing
+                    <NavLink className={({ isActive }) => { return isActive ? styles.isActive : styles.notActive }} to={"/category/corbatin"}>
+                        Corbatines
                     </NavLink>
                 </li>
                 <li>
-                    <NavLink className={({ isActive }) => { return isActive ? styles.isActive : styles.notActive }} to={"/category/women clothing"}>
-                        Women clothing
+                    <NavLink className={({ isActive }) => { return isActive ? styles.isActive : styles.notActive }} to={"/category/correa"}>
+                        Correas
+                    </NavLink>
+                </li>
+                <li>
+                    <NavLink className={({ isActive }) => { return isActive ? styles.isActive : styles.notActive }} to={"/category/bandana"}>
+                        Bandanas
                     </NavLink>
                 </li>
             </ul>

@@ -26,7 +26,7 @@ const ItemDetail = ({ product }) => {
                 <p className={styles.text}>{product.description}</p>
                 <span style={{ fontSize: 30 }}>${product.price}</span>
                 {/* Item Count */}
-                {itemCountVisibility ? (<ItemCount initial={1} stock={5} addCart={handleCart} />) : (
+                {itemCountVisibility ? (<ItemCount initial={1} stock={10} addCart={handleCart} />) : (
                     <>
                         <NavLink to="/cart">
                             <button className={styles.button}>Ir al Carrito de Compras</button>
