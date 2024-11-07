@@ -4,6 +4,7 @@ import { db } from "../../firebase/config";
 import { collection, addDoc, doc, runTransaction, serverTimestamp } from 'firebase/firestore';
 import Swal from 'sweetalert2';
 import styles from './Checkout.module.scss';
+import Loader from '../Loader/Loader';
 
 const Checkout = () => {
   const { cart, clearCart } = useContext(CartContext);
@@ -21,7 +22,7 @@ const Checkout = () => {
     if (email !== confirmEmail) {
       Swal.fire({
         title: "Error!",
-        text: "Emails do not match",
+        text: "Los Emails no coinciden",
         icon: "error",
         confirmButtonText: "OK"
       });
@@ -81,7 +82,7 @@ const Checkout = () => {
     } catch (error) {
       Swal.fire({
         title: "Error!",
-        text: `Failed to create order: ${error.message}`,
+        text: `Hubo un error en la creación de tu orden: ${error.message}`,
         icon: "error",
         confirmButtonText: "OK"
       });
@@ -94,11 +95,14 @@ const Checkout = () => {
     <div className={styles.checkoutContainer}>
       <h1>Checkout</h1>
       {loading ? (
-        <h2>Generating Order...</h2>
+        <>
+        <h2>...Generando Orden...</h2>
+        <Loader/>
+        </>
       ) : orderId ? (
         <div>
-          <h2>Thank you for your purchase! Your order number is: {orderId}</h2>
-          <p>You'll receive tracking information once your items are ready to ship.</p>
+          <h2>Gracias por tu compra! Tu numero de orden es el siguiente: {orderId}</h2>
+          <p>Recibirás un email con los detalles de tu pedido</p>
         </div>
       ) : (
         <form onSubmit={handleSubmit} className={styles.form}>
@@ -137,7 +141,7 @@ const Checkout = () => {
             onChange={(e) => setConfirmEmail(e.target.value)}
             required
           />
-          <button type="submit" className={styles.submitButton}>Confirm Purchase</button>
+          <button type="submit" className={styles.submitButton}>Confirmar Compra</button>
         </form>
       )}
     </div>

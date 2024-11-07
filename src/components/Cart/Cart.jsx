@@ -7,7 +7,8 @@ import { NavLink } from 'react-router-dom'
 
 const Cart = () => {
     const { cart, clearCart } = useContext(CartContext)
-    const price = cart.reduce((acc, item) => acc + item.price, 0)
+    // const price = cart.reduce((acc, item) => acc + item.price, 0)
+    const price =cart.reduce((acc, item) => acc + item.price * item.quantity, 0)
     console.log({ cart });
     console.log("Cart items:", cart);  // Check if cart data is as expected
 
