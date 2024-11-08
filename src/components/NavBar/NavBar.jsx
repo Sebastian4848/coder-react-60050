@@ -10,7 +10,7 @@ import logo from '../../assets/logo-new-waudogshop.webp'
 
 const NavBar = () => {
 
-    const { dark, setDark } = useContext(Theme)
+    // const { dark, setDark } = useContext(Theme)
 
     return (
         <>
@@ -23,7 +23,7 @@ const NavBar = () => {
                     </NavLink>
                 </div>
                 <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', width: 200 }}>
-                    <Switch checked={dark} setChecked={setDark} />
+                    {/* <Switch checked={dark} setChecked={setDark} /> */}
                     <CartWidget/>
                 </div>
             </div>

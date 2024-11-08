@@ -11,7 +11,7 @@ import Checkout from "./components/Checkout/Checkout"
 function App() {
   return (
     <CartProvider>
-      <ThemeProvider>
+      {/* <ThemeProvider> */}
         <BrowserRouter>
           <Layout>
             <Routes>
@@ -24,7 +24,7 @@ function App() {
             </Routes>
           </Layout>
         </BrowserRouter>
-      </ThemeProvider>
+      {/* </ThemeProvider> */}
     </CartProvider>
   )
 }

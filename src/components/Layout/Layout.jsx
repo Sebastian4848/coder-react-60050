@@ -8,12 +8,13 @@ import { Theme } from "../../context/ThemeProvider"
 const Layout = ({ children }) => {
 
         // Light o Dark
-        const { dark } = useContext(Theme)
+        // const { dark } = useContext(Theme)
 
     return (
         <>
             <NavBar/>
-            <div className={styles[`main-container-${dark ? "dark" : "light"}`]}>
+            {/* <div className={styles[`main-container-${dark ? "dark" : "light"}`]}> */}
+                        <div className={styles.light}>
                 {children}
             </div>
             <Footer/>
