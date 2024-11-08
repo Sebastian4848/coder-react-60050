@@ -19,7 +19,7 @@ const ItemListContainer = ({ greeting }) => {
 
   useEffect(() => {
     (async () => {
-      setLoading(true);  // Set loading to true when starting fetch
+      setLoading(true);
       try {
         let productsFiltered = []
 
@@ -29,7 +29,6 @@ const ItemListContainer = ({ greeting }) => {
 
           const querySnapshot = await getDocs(q);
           querySnapshot.forEach((doc) => {
-            console.log(doc.id, " => ", doc.data());
             productsFiltered.push({ id: doc.id, ...doc.data() })
           });
 
@@ -46,7 +45,7 @@ const ItemListContainer = ({ greeting }) => {
         console.log(error)
         setError("Failed to load products");
       } finally {
-        setLoading(false);  // Set loading to false after fetch is done
+        setLoading(false);
       }
 
     })()

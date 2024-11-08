@@ -5,6 +5,7 @@ import { collection, addDoc, doc, runTransaction, serverTimestamp } from 'fireba
 import Swal from 'sweetalert2';
 import styles from './Checkout.module.scss';
 import Loader from '../Loader/Loader';
+import { NavLink } from 'react-router-dom';
 
 const Checkout = () => {
   const { cart, clearCart } = useContext(CartContext);
@@ -100,29 +101,35 @@ const Checkout = () => {
         <Loader/>
         </>
       ) : orderId ? (
-        <div>
+        <div className={styles.checkoutContainer}>
           <h2>Gracias por tu compra! Tu numero de orden es el siguiente: {orderId}</h2>
           <p>Recibirás un email con los detalles de tu pedido</p>
+          <NavLink to="/" >
+                    <button className={styles.button}>
+                        Ir a Home
+                    </button>
+                </NavLink>
         </div>
       ) : (
         <form onSubmit={handleSubmit} className={styles.form}>
+          <p>Ingresa tus datos</p>
           <input
             type="text"
-            placeholder="Full Name"
+            placeholder="Nombre completo"
             value={name}
             onChange={(e) => setName(e.target.value)}
             required
           />
           <input
             type="tel"
-            placeholder="Phone"
+            placeholder="Telefono"
             value={phone}
             onChange={(e) => setPhone(e.target.value)}
             required
           />
           <input
             type="text"
-            placeholder="Address"
+            placeholder="Dirección"
             value={address}
             onChange={(e) => setAddress(e.target.value)}
             required
@@ -136,7 +143,7 @@ const Checkout = () => {
           />
           <input
             type="email"
-            placeholder="Confirm Email"
+            placeholder="Confirmar Email"
             value={confirmEmail}
             onChange={(e) => setConfirmEmail(e.target.value)}
             required

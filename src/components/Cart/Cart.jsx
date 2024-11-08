@@ -7,10 +7,7 @@ import { NavLink } from 'react-router-dom'
 
 const Cart = () => {
     const { cart, clearCart } = useContext(CartContext)
-    // const price = cart.reduce((acc, item) => acc + item.price, 0)
-    const price =cart.reduce((acc, item) => acc + item.price * item.quantity, 0)
-    console.log({ cart });
-    console.log("Cart items:", cart);  // Check if cart data is as expected
+    const price = cart.reduce((acc, item) => acc + item.price * item.quantity, 0)
 
 
     return (<div className={styles.main}>
@@ -21,7 +18,9 @@ const Cart = () => {
                 </div>
                 <p style={{ fontSize: 40 }}>Total Compra: {price}</p>
                 {/* <button onClick={() => endPurchase(cart)} className={styles.button}>Terminar Compra</button> */}
-                <NavLink to={"/checkout"} className="botonCheckout">Terminar Compra</NavLink>
+                <NavLink to={"/checkout"}>
+                    <button className={styles.button}>Terminar Compra</button>
+                </NavLink>
                 <button onClick={clearCart} className={styles.button}>Vaciar Cart</button>
             </div>
 

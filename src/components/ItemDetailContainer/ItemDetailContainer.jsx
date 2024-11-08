@@ -12,7 +12,6 @@ const ItemDetailContainer = () => {
     const { id } = useParams()
     const [error, setError] = useState(null)
     const [loading, setLoading] = useState(false)
-    // const { itemId } = useParams()
 
     useEffect(() => {
         if (!id) return; // Ensure id is defined
@@ -20,16 +19,12 @@ const ItemDetailContainer = () => {
         (async () => {
             setLoading(true);
             try {
-                // const docRef = doc(db, "products", itemId);
                 const docRef = doc(db, "products", id);
                 const docSnap = await getDoc(docRef);
 
                 if (docSnap.exists()) {
-                    console.log("Document data:", docSnap.data());
-                    // setProduct({...docSnap.data(), itemId})
                     setProduct({ ...docSnap.data(), id })
                 } else {
-                    // docSnap.data() will be undefined in this case
                     console.log("No such document!");
                 }
 
@@ -37,20 +32,19 @@ const ItemDetailContainer = () => {
                 console.log(error)
                 setError("Failed to load products");
             } finally {
-                setLoading(false);  // Set loading to false after fetch is done
+                setLoading(false); 
             }
         })()
 
     }, [id])
 
 
-    // return product && < ItemDetail product={product} />
     if (loading) {
-        return <Loader />;  // Mostrar el Loader mientras carga
+        return <Loader />; 
     }
 
     if (error) {
-        return <p>{error}</p>;  // Mostrar mensaje de error si ocurre
+        return <p>{error}</p>;
     }
 
     return product && <div className={styles.container}>

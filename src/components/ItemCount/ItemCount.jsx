@@ -1,17 +1,9 @@
 import React, { useEffect, useState } from "react"
 import styles from "./itemcount.module.scss"
 
-
-// addCart es una funcion
 const ItemCount = ({stock, initial,onAdd, addCart}) => {
 
     const [quantity, setQuantity] = useState(initial)
-
-    // const stockDisponible = 5;
-    // useEffect(() => {
-    //     console.log("Esto se ejecutara solamente cuando se monta el componente")
-    // }, [])
-
 
     const increment = () => {
         if (quantity < stock) {
@@ -32,7 +24,6 @@ const ItemCount = ({stock, initial,onAdd, addCart}) => {
                 <span>{quantity}</span>
                 <button className={styles.button_small} onClick={increment}>+</button>
             </div>
-            {/* <button className={styles.button} onClick={() => onAdd(quantity)} disabled={!stock}> */}
 
             <button className={styles.button} onClick={() => addCart(quantity)}>
                 Agregar al Carrito

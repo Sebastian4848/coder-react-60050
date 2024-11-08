@@ -31,14 +31,11 @@ const endPurchase = async (cart) => {
                 if (!product.exists()) {
                     throw "Product does not exist!"
                 }
-                console.log({ data: { ...product.data() } })
 
                 //Product in cart in order to know the quantity in cart
                 const productInCart = cart.find(
                     (cartElement) => cartElement.id === product.id
                 )
-
-                console.log({ productInCart })
 
                 //Check the resulting stock
                 const resultStock =
@@ -64,7 +61,6 @@ const endPurchase = async (cart) => {
                 const stockUpdated = stocksUpdated.find(
                     (stock) => stock.productId === id
                 )
-                console.log({ stockUpdated })
                 transaction.update(ref, {
                     stock: stockUpdated.stock,
                 })
@@ -78,14 +74,11 @@ const endPurchase = async (cart) => {
                 },
                 tiemstamp: serverTimestamp()
             }
-            console.log(order)
             addDoc(orderCollectionRef, order)
             return order
         })
 
-        console.log("Order created successfully!", order)
     } catch (e) {
-        //Any throw in try block will be caught
         console.error(e)
     }
 }
