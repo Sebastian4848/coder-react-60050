@@ -49,9 +49,9 @@ https://www.linkedin.com/in/sebastian-ojeda-bim/
 
 # Demo
 
-Se puede ver el sitio web desde este link de Vercel.
+Se puede ver el video de la app funcionando en este link publico.
 
-https://
+[https://](https://drive.google.com/file/d/1bDgCNFPzeFJXOEbxlLgCjeN8LkUvfEsa/view?usp=sharing)
 
 
 
